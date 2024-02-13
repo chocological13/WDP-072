@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Form</title>
+
+    <style>
+        
+    </style>
+</head>
+<body>
+    <form>
+        <h1>Register Form</h1>
+        <label for="name">Full Name:</label><br>
+        <input type="text" name="name" placeholder="Full Name"><br>
+        <label for="address">Address:</label><br>
+        <textarea name="address" id="address" cols="30" rows="2"></textarea><br>
+        <label for="country">Country:</label><br>
+        <select name="country" id="country">
+            <option>USA</option>
+            <option>Canada</option>
+            <option>South America</option>
+        </select>
+        <br>
+        <br>
+        <input type="submit" value="Send Data">
+    </form>
+    <br>
+    <table border="1">
+        <thead>
+            <tr>
+                <td rowspan="2">No.</td>
+                <td colspan="2">Name</td>
+                <td rowspan="2">Address</td>
+            </tr>
+            <tr>
+                <td>L</td>
+                <td>P</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>L</td>
+                <td></td>
+                <td>yes</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

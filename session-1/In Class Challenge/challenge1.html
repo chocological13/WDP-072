@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+
+    <link rel="stylesheet" href="styles.css">
+<body>
+    <header id="navbar"> <!-- Navbar -->
+        <nav class="navigation">
+            <ul>
+                <li class="navbar-link"><a href="">Home</a></li>
+                <li class="navbar-link"><a href="">Product</a></li>
+                <li class="navbar-link"><a href="">Gallery</a></li>
+                <li class="navbar-link"><a href="">Blog</a></li>
+                <li class="navbar-link"><a href="">Inventory</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Profile Card -->
+    <div class="profile-card">
+        <div class="profile-picture">
+            <img src="/session-1/images/nuggies.png" alt="profile picture" class="profile-picture">
+        </div>
+        <div class="profile-data">
+            <h1>Your Name</h1>
+            <p class="title">Front End Designer</p>
+            <button class="contact-buttons"><a href="">Contact</a></button>
+            <button class="contact-buttons"><a href="">Resume</a></button>
+        </div>
+        <div class="separator"></div>
+        <div class="additional-info">
+            <div class="info-item"><span>Availability</span> Full Time</div>
+            <div class="info-item"><span>Age</span> 17</div>
+            <div class="info-item"><span>Location</span> xxx, xxxx</div>
+            <div class="info-item"><span>Experience</span> 2 years</div>
+            <div class="info-item"><span>Email</span> developer@gmail.com</div>
+        </div>
+    </div>
+
+    <!-- Form -->
+    <form class="form">
+        <label for="name" class="data-label">Name:</label><br>
+        <input type="text" name="name" class="data-input"><br>
+
+        <label for="availability" class="data-label">Availability:</label><br>
+        <input type="text" name="availability" class="data-input"><br>
+
+        <label for="age" class="data-label">Age:</label><br>
+        <input type="text" name="age" class="data-input"><br>
+
+        <label for="location" class="data-label">Location:</label><br>
+        <input type="text" name="location" class="data-input"><br>
+
+        <label for="experience" class="data-label">Experience (Years):</label><br>
+        <input type="text" name="experience" class="data-input"><br>
+
+        <label for="email" class="data-label">E-mail:</label><br>
+        <input type="text" name="email" class="data-input"><br>
+
+        <div class="submit-button">
+            <input type="submit" value="Submit" id="button">
+        </div>
+    </form>
+</body>
+</html>

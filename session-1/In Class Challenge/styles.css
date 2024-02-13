@@ -1,0 +1,191 @@
+body {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    background-color: #FAF3F0; /* Set the background color for the entire page */
+    font-family: sans-serif;
+}
+
+/* Navigation Bar */
+
+#navbar {
+    background-color: #D4E2D4;
+    padding: 0px;
+    text-align: right; /* Align text to the right */
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.navbar ul {
+    list-style: none; /* Remove default list styles */
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-link {
+    display: inline-block; /* Display as block to apply padding and background color */
+    margin-left: -4px;
+    padding: 10px;
+}
+
+.navbar-link a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.navbar-link:hover {
+    background-color: #eeb2bb;
+}
+
+.navbar-link:active {
+    background-color: rgb(218, 218, 236);
+}
+
+/* Profile */
+
+.profile-card {
+    display: flex;
+    background-color: #eeb2bb;
+    color: whitesmoke;
+    align-items: center;
+    flex-wrap: initial;
+    border-radius: 10px;
+    padding: 20px;  
+    margin: 20px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-data {
+    width: 25%;
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+h1 {
+    margin: 10px 0 0 0;
+}
+
+.title {
+    color: gray;
+    font-size: 15px;
+}
+
+.contact-info {
+    margin: 10px 0;
+}
+
+.contact-buttons {
+    border: none;
+    outline: none;
+    padding: 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    background-color: #D4E2D4;
+    border-radius: 5px;
+}
+
+.contact-buttons a{
+    text-decoration: none;
+    font-weight: 600;
+    color: whitesmoke;
+}
+
+.contact-buttons:hover {
+    background-color: lavender;
+}
+
+.contact-buttons:active {
+    background-color: rgb(218, 218, 236);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.separator {
+    width: 4px;
+    background-color: #971414;
+    margin: 0 10px;
+    height: 100%;
+}
+
+.info-item {
+    margin: 5px 0;
+}
+
+.info-item span {
+    font-weight: bold;
+    display: inline-block;
+    width: 150px;
+}
+
+@media (max-width: 400px) {
+    .profile-card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .profile-picture {
+        margin-bottom: 10px; /* Add space between profile picture and profile data */
+    }
+    
+    .profile-data {
+        width: 100%;
+        text-align: center;
+    }
+
+    .profile-data,
+    .separator,
+    .additional-info {
+        margin-top: 10px; /* Add space between sections */
+    }
+}
+
+/* Form */
+
+.form {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 20px 10px;
+}
+
+.data-label {
+    font-weight: 600;
+}
+
+.data-input {
+    display: flex;
+    padding: 2px;
+    border: 2px #D4E2D4 solid;
+    border-radius: 5px;
+    outline: none;
+}
+
+.submit-button {
+    display: block;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#button {
+    background-color: #eeb2bb;
+    color: whitesmoke;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: 600;
+    width: 200px;
+    outline: none;
+    border: none;
+}
+
+#button:hover {
+    background-color: lavender;
+}
+
+#button:active {
+    background-color: rgb(218, 218, 236);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
