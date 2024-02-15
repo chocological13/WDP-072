@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        // Global Variable can be accessed anywhere in the code
+        var globalVar = "Test global var";
+        function checkScope() {
+            console.log(globalVar);
+        }
+
+        checkScope()
+
+        // Local variable can only be accessed within the function
+        function checkLocalScope() {
+            var localVar = "Test local var";
+            console.log(localVar);
+        }
+
+        checkLocalScope()
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h1 id="title">Content Title</h1>
+        <ul>
+            <li class="content">Content 1</li>
+            <li class="content">Content 2</li>
+            <li class="content">Content 3</li>
+        </ul>
+        <p id="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, quam eos possimus recusandae, exercitationem reiciendis qui odit perferendis architecto quasi, nihil corporis doloribus! Enim quibusdam odio nobis, maiores beatae ad.</p>
+    </div>
+
+    <button onclick="changeTitle()">Edit</button>
+
+    <input type="text" id="inputTitle" value="test">
+    <br>
+    <button onclick="changeTitleTop()">Save</button>
+
+    <script>
+        const title = document.querySelector("#title");
+        const inputTitle = document.querySelector("#inputTitle")
+        const content = document.querySelectorAll(".content");
+
+        title.innerHTML = "New Title";
+
+        content.forEach((element) => {
+            element.innerHTML = "New Content";
+        })
+
+        function changeTitle() {
+            inputTitle.value = title.innerHTML;
+        }
+
+        function changeTitleTop() {
+            title.innerHTML = inputTitle.value
+        }
+
+        const paragraph = document.createElement("p");
+        paragraph.innerHTML = "This is added paragraph";
+
+        const newTitle = document.createElement("h1");
+        newTitle.innerHTML = "New Title 2";
+
+        const container = document.querySelector("#container");
+        container.appendChild(paragraph);
+        container.appendChild(newTitle);
+
+        const para = document.querySelector("#para");
+        para.remove();
+    </script>
+</body>
+</html>
