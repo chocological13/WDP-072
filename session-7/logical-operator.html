@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let myAge = 20;
+        let myHeight = 170;
+        let car = false;
+        let truck = false;
+        let motorcycle = false;
+
+        if (myAge > 17 && myHeight > 150) {
+            if (car) {
+                console.log("You need SIM A");
+            } else if (truck) {
+                console.log("You need SIM B");
+            } else {
+                console.log("You need SIM C");
+            }
+        } else {
+            console.log("Damn, no driver's license for me");
+        }
+            
+        myAge > 17 && myHeight > 150
+            ? console.log("I can have a driver's license!")
+            : console.log("Damn")
+    </script>
+</body>
+</html>

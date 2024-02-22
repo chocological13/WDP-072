@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let userInput = prompt("Please input score:");
+
+        if (userInput >= 1 && userInput <= 100) {
+            if (userInput >= 80) {
+                alert("Your grade is A");
+            } else if (userInput >= 60) {
+                alert("Your grade is B");
+            } else if (userInput >= 40) {
+                alert("Your grade is C");
+            } else {
+                alert("Your grade is D");
+            }
+        } else {
+            alert("Cannot calculate your grade");
+        }
+    </script>
+</body>
+</html>
