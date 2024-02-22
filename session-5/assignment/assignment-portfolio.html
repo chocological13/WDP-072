@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/session-5/assignment/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="container bg-sage rounded-2">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+              <a class="navbar-brand mb-0 h1" href="#">Portfolio</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Product</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Gallery</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Blog</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Inventory</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </div>
+
+    <!-- Profile Card -->
+    <div class="container mt-3 bg-profile rounded-2">
+        <div class="row equal-height-row align-items-center justify-content-center">
+            <div class="col-md-2 equal-height-col">
+                <img src="/session-1/images/nuggies.png" class="img-fluid" alt="profile picture">
+            </div>
+            <div class="col-md-3 equal-height-col">
+                <h1 id="yourName">Your Name</h1>
+                <p class="title" id="title">Front End Designer</p>
+                <button class="btn btn-one" type="button" id="editButton">Edit</button>
+                <button class="btn btn-outline" type="button" id="resumeButton">Resume</button>
+            </div>
+            <div class="col-md-7 equal-height-col mt-3">
+              <div class="row">
+                <div class="col-md-12 info-item">
+                  <p>
+                    <span class="itemTitle">Availability</span>
+                    <span id="availability">Full Time</span>
+                  </p>
+                  <p>
+                    <span class="itemTitle">Age</span>
+                    <span id="age">xx <span>years old</span></span>
+                  </p>
+                  <p>
+                    <span class="itemTitle">Location</span>
+                    <span id="location">xxx</span>
+                  </p>
+                  <p>
+                    <span class="itemTitle">Experience</span>
+                    <span id="exp">xx</span>
+                  </p>
+                  <p>
+                    <span class="itemTitle">E-mail</span>
+                    <span id="email">developer@gmail.com</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forms -->
+    <div class="container mt-3 p-3 rounded-2 bg-forms">
+      <form>
+        <div class="mb-3">
+          <label for="inputName" class="form-label">Name</label>
+          <input type="text" class="form-control" id="inputName">
+        </div>
+        <div class="mb-3">
+          <label for="inputName" class="form-label">Title</label>
+          <input type="text" class="form-control" id="inputTitle">
+        </div>
+        <div class="mb-3">
+          <label for="inputAvailability" class="form-label">Availability</label>
+          <input type="text" class="form-control" id="inputAvailability">
+        </div>
+        <div class="mb-3">
+          <label for="inputAge" class="form-label">Age</label>
+          <input type="text" class="form-control" id="inputAge">
+        </div>
+        <div class="mb-3">
+          <label for="inputLocation" class="form-label">Location</label>
+          <input type="text" class="form-control" id="inputLocation">
+        </div>
+        <div class="mb-3">
+          <label for="inputExp" class="form-label">Experience</label>
+          <input type="text" class="form-control" id="inputExp">
+        </div>
+        <div class="mb-3">
+          <label for="inputEmail" class="form-label">E-mail</label>
+          <input type="email" class="form-control" id="inputEmail">
+        </div>
+        <button type="submit" class="btn btn-submit mx-auto d-block">Submit</button>
+      </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="./script0.js"></script>
+</body>
+</html>
