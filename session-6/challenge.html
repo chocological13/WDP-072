@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHALLENGE</title>
+</head>
+<body>
+    <input type="text" id="input1" value="">
+    <br>
+    <input type="text" id="input2" value="">
+    <br>
+    <button onclick="multiplication()">x</button>
+    <button onclick="division()">:</button>
+    <button onclick="addition()">+</button>
+    <button onclick="substraction()">-</button>
+    <br>
+    <h1 id="result">RESULT:</h1>
+
+    <script>
+        function multiplication() {
+            let a = parseFloat(document.getElementById("input1").value);
+            let b = parseFloat(document.getElementById("input2").value);
+            let result = a * b;
+            document.getElementById("result").innerHTML = "RESULT: " + result;
+        }
+
+        const division = () => {
+            let a = parseFloat(document.getElementById("input1").value);
+            let b = parseFloat(document.getElementById("input2").value);
+            let result = a / b;
+            document.getElementById("result").innerHTML = "RESULT: " + result;
+        }
+
+        function addition() {
+            let a = parseFloat(document.getElementById("input1").value);
+            let b = parseFloat(document.getElementById("input2").value);
+            let result = a + b;
+            document.getElementById("result").innerHTML = "RESULT: " + result;
+        }
+
+        const substraction = () => {
+            let a = parseFloat(document.getElementById("input1").value);
+            let b = parseFloat(document.getElementById("input2").value);
+            let result = a - b;
+            document.getElementById("result").innerHTML = "RESULT: " + result;
+        }
+    </script>
+</body>
+</html>

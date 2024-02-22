@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="result"></h1>
+    <h1 id="division"></h1>
+    <h1 id="addition"></h1>
+    <h1 id="substraction"></h1>
+    <h1 id="square"></h1>
+    <button onclick="this.innerHTML = Date()">The time is?</button>
+    <script>
+        function multiplication(a, b) {
+            return a * b;
+        }
+
+        const division = (a, b) => {
+            return a / b;
+        }
+
+        function addition(a, b) {
+            return a + b;
+        }
+
+        const substraction = (a, b) => {
+            return a - b;
+        }
+
+        const square = a => a * a;
+
+        document.getElementById("result").innerHTML = multiplication(4, 2);
+        document.getElementById("division").innerHTML = division(4, 2);
+        document.getElementById("addition").innerHTML = addition(4, 2);
+        document.getElementById("substraction").innerHTML = substraction(4, 2);
+        document.getElementById("square").innerHTML = square(2);
+    </script>
+</body>
+</html>
