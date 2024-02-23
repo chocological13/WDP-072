@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment</title>
+</head>
+<body>
+    <script>
+        console.log("Task 1")
+        var person = 0;
+        while (person < 20) {
+            var i = person + 1;
+            if ((i % 10) === 1) {
+                console.log("I am the " + i + "st person")
+            } else if ((i % 10) === 2) {
+                console.log("I am the " + i + "nd person")
+            } else if ((i % 10) === 3) {
+                console.log("I am the " + i + "rd person")
+            } else {
+                console.log("I am the " + i + "th person")
+            }
+            person++
+        }
+
+        console.log(" ");
+        console.log(" ");
+
+        console.log("Task 2");
+        for (var i = 1; i < 20; i += 2) {
+            var output = "";
+            for (var j = 1; j <= i; j++) {
+                output += "O".repeat(4) + " ";
+            }
+            console.log(output);
+        }
+        console.log(" ");
+        console.log(" ");
+
+        console.log("Task 3");
+        var height = 100;
+        for (var i = 0; i < height; i++) {
+            var output = "";
+            for (var j = 0; j < i + 1; j++) {
+                output += "O";
+            }
+            console.log(output);
+        }
+
+        console.log(" ");
+        console.log(" ");
+
+        var height = 5;
+        for (var i = 0; i < height; i++) {
+            var row = ""; // initiate the row
+            var spaces = height - i - 1; // spaces before the pyramid (i - 1) bc we initialize at 0
+            var symbols = 2 * (i + 1) - 1; // print the symbols, we make it odd so that it forms a pyramid shape
+            // (i + 1) bc i initializes at 0, so we have to make the row there
+            
+            // *nested loop j for the spaces before pyramid
+            for (var j = 0; j < spaces; j++) {
+                row += " ";
+            }
+
+            // nested loop k for the symbols
+            for (var k = 0; k < symbols; k++) {
+                row += "O";
+            }
+            console.log(row);
+        }
+
+        console.log("")
+        console.log("")
+
+        var height = 5;
+        for (var i = 0; i < height; i++) {
+            var row = "";
+            var spaces = height - i - 1;
+            var symbols = i + 1
+
+            // nested loop j
+            for (var j = 0; j < spaces; j++) {
+                row += " ";
+            }
+
+            //nested loop k left side
+            for (var k = 0; k < symbols; k++) {
+                row += "O";
+            }
+
+            //Space in the middle
+            row += " ";
+
+            // nested loop k right side
+            for (var k = 0; k < symbols; k++) {
+                row += "O";
+            }
+            console.log(row);
+        }
+    </script>
+    
+</body>
+</html>
