@@ -27,12 +27,14 @@
         console.log(" ");
 
         console.log("Task 2");
-        for (var i = 1; i < 20; i += 2) {
-            var output = "";
-            for (var j = 1; j <= i; j++) {
-                output += "O".repeat(4) + " ";
+        for (var i = 0; i < 20; i++) {
+            if (i % 2 === 1) {
+                var output = "";
+                for (var j = 0; j < i; j++) {
+                    output += "O".repeat(4) + " ";
+                }
+                console.log(output);
             }
-            console.log(output);
         }
         console.log(" ");
         console.log(" ");
@@ -41,7 +43,7 @@
         var height = 100;
         for (var i = 0; i < height; i++) {
             var output = "";
-            for (var j = 0; j < i + 1; j++) {
+            for (var j = 0; j < height + 1; j++) {
                 output += "O";
             }
             console.log(output);

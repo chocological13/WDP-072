@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let donations = [5, 10, 12, 13, 20];
+        
+        let total = 0;
+        for (let i = 0; i < donations.length; i++) {
+            total += donations[i];
+        }
+        console.log(total);
+
+        let totalDono = donations.reduce(function(totalDono, donations){
+            return totalDono + donations;
+        }, 0); // 0 is the initialization
+        console.log(totalDono);
+    </script>
+</body>
+</html>
