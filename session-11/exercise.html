@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // EX 1
+        console.log("Exercise 1");
+
+        function compareNum (a, b) {
+            if (b > a) {
+                return true;
+            } else if (a > b) {
+                return false;
+            } else {
+                return -1;
+            }
+        }
+
+        console.log(compareNum(5, 8));
+        console.log(compareNum(5, 3));
+        console.log(compareNum(4, 4));
+        console.log(compareNum(3, 3));
+        console.log(compareNum(17, 2));
+
+        // EX 2
+        console.log("")
+        console.log("Exercise 2")
+
+        function reverseString(text) {
+            return text.split("").reverse().join("");
+        }
+
+        console.log(reverseString("Hello World and Coders"));
+        console.log(reverseString("John Doe"));
+        console.log(reverseString("I am a bookworm"));
+        console.log(reverseString("Coding is my hobby"));
+        console.log(reverseString("Super"));
+
+        // EX 3
+        console.log("")
+        console.log("Exercise 3")
+
+        function sortLetter(text) {
+            return text.split("").sort().join("");
+        }
+
+        console.log(sortLetter("halo"));
+        console.log(sortLetter("qwerty"));
+        console.log(sortLetter("qwertyuiopasdfghjklzxcvbnm"));
+
+        // EX 4
+        console.log("")
+        console.log("Exercise 4")
+        function isArithmeticProgression(numbers) {
+            // Because if only 1 input there's no other to compare
+            if (numbers == 1) {
+                return true
+            }
+
+            // Sort the array
+            numbers.sort((a, b) => a - b);
+
+            // Check for the difference between the progressing numbers
+            let d = numbers[1] - numbers[0];
+            
+            // Check if all the progressing numbers has the same difference
+            // Start from i = 2 bc we already checked the first two indexes with d
+            for (let i = 2; i < numbers.length; i++) {
+                if (numbers[i] - numbers[i - 1] !== d) {
+                    return false;
+                }
+            }
+            return true; // Return true here after looping is done
+        }
+
+        console.log(isArithmeticProgression([1, 2, 3, 4, 5, 6]));
+        console.log(isArithmeticProgression([2, 4, 8, 12, 24]));
+        console.log(isArithmeticProgression([2, 4, 6, 8]));
+        console.log(isArithmeticProgression([2, 6, 18, 54]));
+        console.log(isArithmeticProgression([1, 2, 3, 4, 7, 9]));
+
+        // EX 5
+        console.log("")
+        console.log("Exercise 5")
+        
+        function threeStepsAB(text) {
+            // Define the regular expression pattern
+            var pattern = /a...b|b...a/;
+
+            // Test the string against the pattern
+            return pattern.test(text);
+        }
+
+        console.log(threeStepsAB('lane borrowed'));
+        console.log(threeStepsAB('i am sick'));
+        console.log(threeStepsAB('you are boring'));
+        console.log(threeStepsAB('barbarian'));
+        console.log(threeStepsAB('bacon and meat'));
+
+        // EX 6
+        console.log("")
+        console.log("Exercise 6")
+        function gcd(number1, number2) {
+            let smaller, gcd;
+
+            if (number1 < number2) { // mencari angka kecil dan besar
+                smaller = number1;
+            } else if(number1 > number2) {
+                smaller = number2;
+            }
+
+            for (let i = 1; i <= smaller; i++) {
+                if (number1 % i == 0 && number2 % i == 0) {
+                    gcd = i;
+                }
+            }
+
+            return gcd;
+        }
+
+        var gcd2 = function(number1, number2) {
+            let smaller, bigger;
+
+            if (number1 < number2) {
+                smaller = number1;
+                bigger = number2;
+            } else if(number2 < number1) {
+                smaller = number2;
+                bigger = number1;
+            }
+
+            if (smaller == 0) {
+                return bigger;
+            }
+
+            return gcd2(smaller, bigger % smaller);
+        }
+
+        console.log(gcd(12, 16));
+        console.log(gcd2(12, 16));
+
+        // EX 7
+        console.log("")
+        console.log("Exercise 7")
+        function isPrime(number) {
+            let isPrime = true;
+            // Check if number is equal to 1
+            if (number === 1) {
+                return false;
+            } else if (number > 1) {
+                for (let i = 2; i < number; i++) {// start from 2, bc 0 and 1 are not prime numbers
+                    if (number % i == 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+            } else {
+                return false;
+            }
+
+            return isPrime;
+        }
+
+        console.log(isPrime(3));
+        console.log(isPrime(7));
+        console.log(isPrime(6));
+        console.log(isPrime(23));
+        console.log(isPrime(33));
+        console.log(isPrime(9));
+    </script>
+</body>
+</html>
