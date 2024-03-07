@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button" onclick="newDate()">Press to show the date</button>
+    <h3 id="date"></h3>
+    <script>
+        let year = 2024;
+        const month = "march";
+        console.log(month + " " + year);
+
+        console.log("A")
+        const fruits = ["apple", "banana", "grape", "orange", "strawberry"];
+        console.log(fruits);
+        fruits.push("longan");
+        console.log(fruits);
+        fruits[0] = "kiwi";
+        console.log(fruits);
+        fruits.pop();
+        console.log(fruits);
+        
+        console.log("B")
+        const person = {firstName: "annisa", lastName: "mustofa", hobby: "gaming", favNum: 13, glasses: false};
+        console.log(person);
+        console.log(person.firstName + " " + person.lastName);
+        person.favNum = 8;
+        console.log(person);
+        person.hobby = [person.hobby, "coding"];
+        console.log(person);
+        person.graduate = "hacktiv8";
+        console.log(person);
+
+        for (let i = 0; i < person.hobby.length; i++) {
+            console.log(person.hobby[i]);
+        }
+
+        const keys = Object.keys(person);
+        console.log(keys);
+
+        const values = Object.values(person);
+        console.log(values);
+
+        // for .. in object loop
+        for (let key in person) {
+            console.log(key + ": " + person[key])
+        }
+
+        // function for the button
+        function newDate() {
+            let newDate = new Date();
+            document.getElementById("date").innerHTML = newDate;
+            document.getElementById("button").style.display = "none";
+        }
+
+        //function for console
+        function date() {
+            let date = new Date();
+            return date;
+        }
+        let today = date();
+        console.log(today);
+        
+        function check(a) {
+            if (a % 2 === 0) {
+                console.log("even");
+            }
+            else if (a % 2 === 1) {
+                console.log("odd");
+            }
+            else {
+                console.log("Invalid Data");
+            }
+        }
+    </script>
+</body>
+</html>
