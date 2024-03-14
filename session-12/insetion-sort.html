@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numbers = [27, 38, 4, 43, 9, 82, 10];
+        console.log("Original list of numbers: ", numbers);
+
+        let insertionSort = (inputArray) => {
+            let n = inputArray.length;
+            for (let i = 1; i < n; i++) {
+                let key = inputArray[i];
+                let j = i - 1;
+                while (j >= 0 && inputArray[j] > key) {
+                    inputArray[j + 1] = inputArray[j];
+                    j = j - 1;
+                }
+
+                inputArray[j + 1] = key;
+
+                console.log("Numbers after iteration", i, ": ", inputArray);
+            }
+            return inputArray;
+        }
+
+        let newNumbers = insertionSort(numbers);
+        console.log("Sorted numbers: ", newNumbers);
+    </script>
+</body>
+</html>

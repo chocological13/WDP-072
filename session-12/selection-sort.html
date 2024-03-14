@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numbers = [27, 38, 4, 43, 9, 82, 10];
+        console.log("Original list of numbers: ", numbers);
+
+        // Step 1 - intialize array[0] as the minimum value
+        // Step 2 - Find the smallest element in the list
+        // Step 3 - Swap the smallest element
+        // Step 4 - Make the next element as the minimum value
+        // Step 5 - Do it again until the all has been sorted
+
+        for (let i = 0; i < numbers.length; i++) {
+            let min = i;
+            for (let j = i + 1 ; j < numbers.length; j++) {
+                if (numbers[j] < numbers[min]) {
+                    min = j;
+                }
+            }
+            if (min !== i) {
+                let tmp = numbers[i];
+                numbers[i] = numbers[min];
+                numbers[min] = tmp;
+            }
+            console.log("Numbers after " + (i + 1) + "th " + "iteration: ", numbers);
+        }
+
+        console.log("Sorted list of numbers: ", numbers);
+    </script>
+</body>
+</html>
