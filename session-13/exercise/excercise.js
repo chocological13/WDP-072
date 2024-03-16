@@ -44,7 +44,7 @@ function displayStudents() {
           <li class="list-group-item d-flex align-item-center flex-grow-1">
               <button class="btn btn-danger" id=${
                 students[i].id
-              } onclick="deleteTodo(this.id)">Delete</button>
+              } onclick="deleteStudents(this.id)">Delete</button>
           </li>
       </ul>
         `;
@@ -52,4 +52,18 @@ function displayStudents() {
     }
   
     document.getElementById("list-students").innerHTML = list;
+  }
+
+  function deleteStudents(id) {
+  
+    let students = JSON.parse(localStorage.getItem("students"))
+  
+    students = students.filter(el => el.id !== Number(id))
+  
+    if (students.length) {
+      localStorage.setItem("students", JSON.stringify(students))
+    } else {
+      localStorage.removeItem("students")
+    }
+    displayStudents()
   }
