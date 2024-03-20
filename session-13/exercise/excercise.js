@@ -46,7 +46,7 @@ function displayStudents() {
                 students[i].id
               } onclick="deleteStudents(this.id)">Delete</button>
           </li>
-      </ul>
+        </ul>
         `;
       }
     }
