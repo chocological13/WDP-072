@@ -1,0 +1,12 @@
+{
+    "home": {
+        "url": "./",
+        "bannerImage": "",
+        "heading": "Lorem ipsum"
+    },
+    "about": {
+        "url": "./about.html",
+        "bannerImage": "",
+        "heading": "Lorem"
+    } 
+}
