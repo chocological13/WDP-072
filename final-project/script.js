@@ -70,36 +70,36 @@ async function fetchData() {
             showCountry.textContent = `Real-time statistics for ${data.country}, including active cases, total cases, recoveries, and deaths.`;
             showDate.textContent = `Current data as of ${data.day}`;
             totalCases.innerHTML = `
-                <h3 class="display-1" editable="inline">${data?.tests?.total ?? 'N/A'}</h3>
+                <h3 class="display-1" editable="inline">${data.tests.total.toLocaleString()}</h3>
                 <div><b>Total Cases</b></div>
             `;
             newCases.innerHTML = `
-            <div class="lc-block"><span class="display-4" editable="inline"><b>${data?.cases?.new ?? 'N/A'}</b></span>
+            <div class="lc-block"><span class="display-4" editable="inline"><b>${data?.cases?.new != null ? data.cases.new.toLocaleString() : 'N/A'}</b></span>
 				<div editable="rich">New Cases</div>
 			</div>
             `;
             activeCases.innerHTML = `
-            <span class="display-4" editable="inline"><b>${data?.cases?.active ?? 'N/A'}</b></span>
+            <span class="display-4" editable="inline"><b>${data?.cases?.active != null ? data.cases.active.toLocaleString() : 'N/A'}</b></span>
 				<div editable="rich">
 					<p>Active Cases </p>
 				</div>
             `;
             critCases.innerHTML = `
-            <span class="display-4" editable="inline"><b>${data?.cases?.critical ?? 'N/A'}</b></span>
+            <span class="display-4" editable="inline"><b>${data?.cases?.critical != null ? data.cases.critical.toLocaleString() : 'N/A'}</b></span>
 				<div editable="rich">Critical Cases</div>
             `;
             totalTests.innerHTML = `
-            <span class="display-4" editable="inline"><b>${data?.cases?.total ?? 'N/A'}</b></span>
+            <span class="display-4" editable="inline"><b>${data?.cases?.total != null ? data.cases.total.toLocaleString() : 'N/A'}</b></span>
 				<div editable="rich">
 					<p>Total Tests</p>
 				</div>
             `;
             recoveredCases.innerHTML = `
-            <span class="display-4" editable="inline"><b>${data?.cases?.recovered ?? 'N/A'}</b></span>
+            <span class="display-4" editable="inline"><b>${data?.cases?.recovered != null ? data.cases.recovered.toLocaleString() : 'N/A'}</b></span>
 			<div editable="rich">Recovered Cases</div>
             `;
             totalDeaths.innerHTML =
-            `<div class="lc-block"><span class="display-4" editable="inline"><b>${data?.deaths?.total ?? 'N/A'}</b></span>
+            `<div class="lc-block"><span class="display-4" editable="inline"><b>${data?.deaths?.total != null ? data.deaths.total.toLocaleString() : 'N/A'}</b></span>
 				<div editable="rich">Total Deaths</div>
 			</div>`
         } else {
@@ -158,7 +158,7 @@ async function fetchHistoryDates() {
                 <i class="fas fa-table me-1"></i>
                 History data for ${selectedCountry}
             </div>
-            <div class="card-body table-resoponsive table-dark table-striped">
+            <div class="card-body table-resoponsive table-dark table-striped mx-auto d-block">
                 <table id="datatablesSimple" class="table align-middle">
                     <thead class="table-dark">
                         <tr>
@@ -186,13 +186,13 @@ async function fetchHistoryDates() {
             const markup = `
             <tr>
                 <th scope="row">${index.day}</th>
-                <td>${index.cases.total}</td>
-                <td>${index?.cases?.new ?? 'N/A'}</td>
-                <td>${index?.cases?.active ?? 'N/A'}</td>
-                <td>${index?.cases?.critical ?? 'N/A'}</td>
-                <td>${index?.tests?.total ?? 'N/A'}</td>
-                <td class="recCases">${index?.cases?.recovered ?? 'N/A'}</td>
-                <td class="totalDeaths">${index.deaths.total}</td>
+                <td>${index.cases.total.toLocaleString()}</td>
+                <td>${index?.cases?.new != null ? index.cases.new.toLocaleString() : 'N/A'}</td>
+                <td>${index?.cases?.active != null ? index.cases.active.toLocaleString() : 'N/A'}</td>
+                <td>${index?.cases?.critical != null ? index.cases.critical.toLocaleString() : 'N/A'}</td>
+                <td>${index?.tests?.total != null ? index.tests.total.toLocaleString() : 'N/A'}</td>
+                <td class="recCases">${index?.cases?.recovered != null ? index.cases.recovered.toLocaleString() : 'N/A'}</td>
+                <td class="totalDeaths">${index.deaths.total.toLocaleString()}</td>
             </tr>
             `;
             document.querySelector('#historyData').insertAdjacentHTML('beforeend', markup);

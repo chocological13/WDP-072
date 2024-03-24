@@ -31,3 +31,7 @@ td.totalDeaths {
     background-color: gray;
     color: #040720;
   }
+
+  td {
+    text-align: center;
+  }
