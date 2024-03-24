@@ -89,7 +89,7 @@ async function fetchData() {
 				<div editable="rich">Critical Cases</div>
             `;
             totalTests.innerHTML = `
-            <span class="display-4" editable="inline"><b>${data?.cases?.total ?? 'N/A'}}</b></span>
+            <span class="display-4" editable="inline"><b>${data?.cases?.total ?? 'N/A'}</b></span>
 				<div editable="rich">
 					<p>Total Tests</p>
 				</div>
