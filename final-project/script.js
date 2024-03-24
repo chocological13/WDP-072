@@ -34,6 +34,9 @@ async function fetchData() {
     // Get the selected country from the dropdown
     const selectedCountry = document.getElementById('countrySelection').value;
 
+    // Call for fetchHistoryDates()
+    fetchHistoryDates();
+
     // Set URL
     const urlData = `https://covid-193.p.rapidapi.com/statistics?country=${selectedCountry}`;
     const optData = {
@@ -66,8 +69,10 @@ async function fetchData() {
 
             // Check if the data fields are null, and if so, display a default message
             const checkTotalTests = (data.tests.total !== null) ? data.tests.total : 'N/A';
-            const checkNewCases = (data.cases.new !== null) ? data.cases.new : 'N/A';
-            const checkActiveCases = (data.cases.active !== null) ? data.cases.active : 'N/A';
+            // const checkNewCases = (data.cases.new !== null) ? data.cases.new : 'N/A';
+            // const checkNewCases = data?.cases?.new ?? 'N/A';
+            // const checkActiveCases = (data.cases.active !== null) ? data.cases.active : 'N/A';
+            const checkActiveCases = data?.cases?.active ?? 'N/A';
             const checkCriticalCases = (data.cases.critical !== null) ? data.cases.critical : 'N/A';
             const checkRecoveredCases = (data.cases.recovered !== null) ? data.cases.recovered : 'N/A';
             const checkTotalCases = (data.cases.total !== null) ? data.cases.total : 'N/A';
@@ -81,7 +86,7 @@ async function fetchData() {
             `;
             showCountry.textContent = `Real-time statistics for ${data.country}, including active cases, total cases, recoveries, and deaths.`;
             newCases.innerHTML = `
-            <div class="lc-block"><span class="display-4" editable="inline"><b>${checkNewCases}</b></span>
+            <div class="lc-block"><span class="display-4" editable="inline"><b>${data?.cases?.new ?? 'N/A'}</b></span>
 				<div editable="rich">New Cases</div>
 			</div>
             `;
@@ -109,18 +114,8 @@ async function fetchData() {
             `<div class="lc-block"><span class="display-4" editable="inline"><b>${checkTotalDeaths}</b></span>
 				<div editable="rich">Total Deaths</div>
 			</div>`
-            dataContainer.innerHTML = `
-                <p>Country: ${data.country}</p>
-                <p>Population: ${population}</p>
-                <p>Active Cases: ${activeCases}</p>
-                <p>Critical Cases: ${criticalCases}</p>
-                <p>Recovered Cases: ${recoveredCases}</p>
-                <p>Total Cases: ${totalCases}</p>
-                <p>Total Death: ${totalDeaths}</p>
-                <p>Data as of: ${data.time}</p>
-            `;
         } else {
-            dataContainer.innerHTML = `<p>Data not available for ${selectedCountry}</p>`;
+            document.getElementById('ifNA').innerHTML = `<p>Data not available for ${selectedCountry}</p>`;
         }
     } catch (error) {
         console.error(error);
@@ -128,8 +123,19 @@ async function fetchData() {
 
 }
 
+// Function for dataTables
+window.addEventListener('DOMContentLoaded', event => {
+    // Simple-DataTables
+    // https://github.com/fiduswriter/Simple-DataTables/wiki
+
+    const datatablesSimple = document.getElementById('datatablesSimple');
+    if (datatablesSimple) {
+        new simpleDatatables.DataTable(datatablesSimple);
+    }
+});
+
 // Function to fetch history
-async function fetchHistory() {
+async function fetchHistoryDates() {
 
     // Get the selected country from the dropdown
     const selectedCountry = document.getElementById('countrySelection').value;
@@ -153,22 +159,56 @@ async function fetchHistory() {
         console.log('outer result', result);
 
         exData.innerHTML = `
-        <div class="container">
-            <select id="dateAvailable">
-            <option selected>Select date</option>
-            </select>
-                <button>Get History Data</button>
+        <div class="container-fluid px-4">
+        <h1 class="mt-4">History Data</h1>
+        <div class="card mb-4">
+            <div class="card-body">
+                The history data from the COVID-19 API provides a chronological record of COVID-19 statistics, including confirmed cases, deaths, recoveries, and testing data, for a specific country over time.
+            </div>
         </div>
-        `
-
-        // Ref HTML
-        // const dateAvailable = document.getElementById('dateAvailable');
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                History data for ${selectedCountry}
+            </div>
+            <div class="card-body table-resoponsive table-dark table-striped">
+                <table id="datatablesSimple" class="table align-middle">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Date</th>
+                            <th>Total Cases</th>
+                            <th>New Cases</th>
+                            <th>Active Cases</th>
+                            <th>Critical Cases</th>
+                            <th>Total Tests</th>
+                            <th class="recCases">Recovered Cases</th>
+                            <th class="totalDeaths">Total Deaths</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyData" class="table-group-divider">
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        `;
 
         console.log('length', result.response.length);
 
         result.response.forEach(index => {
-            const markup = `<option>${index.day}</option>`;
-            document.querySelector('#dateAvailable').insertAdjacentHTML('beforeend', markup);
+            const markup = `
+            <tr>
+                <th scope="row">${index.day}</th>
+                <td>${index.cases.total}</td>
+                <td>${index?.cases?.new ?? 'N/A'}</td>
+                <td>${index?.cases?.active ?? 'N/A'}</td>
+                <td>${index?.cases?.critical ?? 'N/A'}</td>
+                <td>${index?.tests?.total ?? 'N/A'}</td>
+                <td class="recCases">${index?.cases?.recovered ?? 'N/A'}</td>
+                <td class="totalDeaths">${index.deaths.total}</td>
+            </tr>
+            `;
+            document.querySelector('#historyData').insertAdjacentHTML('beforeend', markup);
         });
 
         // if (result.response.length > 0) {
@@ -210,3 +250,31 @@ async function fetchHistory() {
         console.error(error)
     }
 }
+
+// Get history data after the past dates are shown
+// async function fetchHistory() {
+//     // Get the selected country from the dropdown
+//     const selectedCountry = document.getElementById('countrySelection').value;
+//     // Get the selected date from the dates dropdown
+//     const historyDate = document.getElementById('dateAvailable').value;
+
+//     // Set URL data
+//     const urlHistory = `https://covid-193.p.rapidapi.com/history?country=${selectedCountry}&day=${historyDate}`;
+//     const optHistory = {
+// 	    method: 'GET',
+// 	    headers: {
+// 		    'X-RapidAPI-Key': 'cde8958a76mshf39865d680f2f73p1a7ea8jsn2c5550be4c25',
+// 		    'X-RapidAPI-Host': 'covid-193.p.rapidapi.com'
+// 	    }
+//     };
+
+//     const showHistory = document.getElementById('showHistory');
+
+//     try {
+//         const response = await fetch(urlHistory, optHistory);
+//         const result = await response.json();
+//         console.log('history', result);
+//     } catch (error) {
+//         console.error(error);
+//     }
+// }

@@ -1,3 +1,13 @@
 .accordion-body {
     font-size: 13px;
 }
+
+th.recCases,
+td.recCases {
+    color: green;
+}
+
+th.totalDeaths,
+td.totalDeaths {
+    color: red;
+}
