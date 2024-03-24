@@ -57,7 +57,6 @@ async function fetchData() {
     const totalCases = document.getElementById('totalCases');
     const recoveredCases = document.getElementById('recoveredCases');
     const totalDeaths = document.getElementById('totalDeaths');
-    const dataContainer = document.getElementById('dataContainer');
     
     try {
         const response = await fetch(urlData, optData);
@@ -67,51 +66,40 @@ async function fetchData() {
         if (result.response.length > 0) {
             const data = result.response[0];
 
-            // Check if the data fields are null, and if so, display a default message
-            const checkTotalTests = (data.tests.total !== null) ? data.tests.total : 'N/A';
-            // const checkNewCases = (data.cases.new !== null) ? data.cases.new : 'N/A';
-            // const checkNewCases = data?.cases?.new ?? 'N/A';
-            // const checkActiveCases = (data.cases.active !== null) ? data.cases.active : 'N/A';
-            const checkActiveCases = data?.cases?.active ?? 'N/A';
-            const checkCriticalCases = (data.cases.critical !== null) ? data.cases.critical : 'N/A';
-            const checkRecoveredCases = (data.cases.recovered !== null) ? data.cases.recovered : 'N/A';
-            const checkTotalCases = (data.cases.total !== null) ? data.cases.total : 'N/A';
-            const checkTotalDeaths = (data.deaths.total !== null) ? data.deaths.total : 'N/A';
-
             // Update the content of HTML element
+            showCountry.textContent = `Real-time statistics for ${data.country}, including active cases, total cases, recoveries, and deaths.`;
             showDate.textContent = `Current data as of ${data.day}`;
             totalCases.innerHTML = `
-                <h3 class="display-1" editable="inline">${checkTotalCases}</h3>
+                <h3 class="display-1" editable="inline">${data?.tests?.total ?? 'N/A'}</h3>
                 <div><b>Total Cases</b></div>
             `;
-            showCountry.textContent = `Real-time statistics for ${data.country}, including active cases, total cases, recoveries, and deaths.`;
             newCases.innerHTML = `
             <div class="lc-block"><span class="display-4" editable="inline"><b>${data?.cases?.new ?? 'N/A'}</b></span>
 				<div editable="rich">New Cases</div>
 			</div>
             `;
             activeCases.innerHTML = `
-            <span class="display-4" editable="inline"><b>${checkActiveCases}</b></span>
+            <span class="display-4" editable="inline"><b>${data?.cases?.active ?? 'N/A'}</b></span>
 				<div editable="rich">
 					<p>Active Cases </p>
 				</div>
             `;
             critCases.innerHTML = `
-            <span class="display-4" editable="inline"><b>${checkCriticalCases}</b></span>
+            <span class="display-4" editable="inline"><b>${data?.cases?.critical ?? 'N/A'}</b></span>
 				<div editable="rich">Critical Cases</div>
             `;
             totalTests.innerHTML = `
-            <span class="display-4" editable="inline"><b>${checkTotalTests}</b></span>
+            <span class="display-4" editable="inline"><b>${data?.cases?.total ?? 'N/A'}}</b></span>
 				<div editable="rich">
 					<p>Total Tests</p>
 				</div>
             `;
             recoveredCases.innerHTML = `
-            <span class="display-4" editable="inline"><b>${checkRecoveredCases}</b></span>
+            <span class="display-4" editable="inline"><b>${data?.cases?.recovered ?? 'N/A'}</b></span>
 			<div editable="rich">Recovered Cases</div>
             `;
             totalDeaths.innerHTML =
-            `<div class="lc-block"><span class="display-4" editable="inline"><b>${checkTotalDeaths}</b></span>
+            `<div class="lc-block"><span class="display-4" editable="inline"><b>${data?.deaths?.total ?? 'N/A'}</b></span>
 				<div editable="rich">Total Deaths</div>
 			</div>`
         } else {
@@ -126,7 +114,6 @@ async function fetchData() {
 // Function for dataTables
 window.addEventListener('DOMContentLoaded', event => {
     // Simple-DataTables
-    // https://github.com/fiduswriter/Simple-DataTables/wiki
 
     const datatablesSimple = document.getElementById('datatablesSimple');
     if (datatablesSimple) {
@@ -210,71 +197,7 @@ async function fetchHistoryDates() {
             `;
             document.querySelector('#historyData').insertAdjacentHTML('beforeend', markup);
         });
-
-        // if (result.response.length > 0) {
-        //     for (var i = 0; i < result.response.length; i++) {
-        //         const index = result.response[i]
-        //         console.log('resDay', index.day);
-
-        //         dateAvailable.innerHTML = `
-        //             <option>${index.day}</option>
-        //         `;
-        //     }
-        // //     const data = result.response[0];
-
-        // //     // Check if the data fields are null, and if so, display a default message
-        // //     const population = (data.population !== null) ? data.population : 'N/A';
-        // //     const checkNewCases = (data.cases.new !== null) ? data.cases.new : 'N/A';
-        // //     const checkActiveCases = (data.cases.active !== null) ? data.cases.active : 'N/A';
-        // //     const checkCriticalCases = (data.cases.critical !== null) ? data.cases.critical : 'N/A';
-        // //     const checkRecoveredCases = (data.cases.recovered !== null) ? data.cases.recovered : 'N/A';
-        // //     const checkTotalCases = (data.cases.total !== null) ? data.cases.total : 'N/A';
-        // //     const checkTotalDeaths = (data.deaths.total !== null) ? data.deaths.total : 'N/A';
-            
-
-        // //     // Update HTML elements
-        // //     exData.innerHTML = `
-        // //     <p>New Cases: ${checkNewCases}</p
-        // //     <p>Active Cases: ${activeCases}</p>
-        // //     <p>Critical Cases: ${criticalCases}</p>
-        // //     <p>Recovered Cases: ${recoveredCases}</p>
-        // //     <p>Total Cases: ${totalCases}</p>
-        // //     <p>Total Death: ${totalDeaths}</p>
-        // //     <p>Data as of: ${data.time}</p>
-        // // `;
-        // } else {
-        //     exData.innerHTML = `<p>Data not available for</p>`;
-        // }
-
     } catch (error) {
         console.error(error)
     }
 }
-
-// Get history data after the past dates are shown
-// async function fetchHistory() {
-//     // Get the selected country from the dropdown
-//     const selectedCountry = document.getElementById('countrySelection').value;
-//     // Get the selected date from the dates dropdown
-//     const historyDate = document.getElementById('dateAvailable').value;
-
-//     // Set URL data
-//     const urlHistory = `https://covid-193.p.rapidapi.com/history?country=${selectedCountry}&day=${historyDate}`;
-//     const optHistory = {
-// 	    method: 'GET',
-// 	    headers: {
-// 		    'X-RapidAPI-Key': 'cde8958a76mshf39865d680f2f73p1a7ea8jsn2c5550be4c25',
-// 		    'X-RapidAPI-Host': 'covid-193.p.rapidapi.com'
-// 	    }
-//     };
-
-//     const showHistory = document.getElementById('showHistory');
-
-//     try {
-//         const response = await fetch(urlHistory, optHistory);
-//         const result = await response.json();
-//         console.log('history', result);
-//     } catch (error) {
-//         console.error(error);
-//     }
-// }
