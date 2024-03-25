@@ -150,7 +150,7 @@ async function fetchHistoryDates() {
         <h1 class="mt-4">History Data</h1>
         <div class="card mb-4">
             <div class="card-body">
-                The history data from the COVID-19 API provides a chronological record of COVID-19 statistics, including confirmed cases, deaths, recoveries, and testing data, for a specific country over time.
+                The history data provides a chronological record of COVID-19 statistics, including confirmed cases, deaths, recoveries, and testing data, for a specific country over time.
             </div>
         </div>
         <div class="card mb-4">
@@ -187,11 +187,11 @@ async function fetchHistoryDates() {
             <tr>
                 <th scope="row">${index.day}</th>
                 <td>${index.cases.total.toLocaleString()}</td>
-                <td>${index?.cases?.new != null ? index.cases.new.toLocaleString() : 'N/A'}</td>
-                <td>${index?.cases?.active != null ? index.cases.active.toLocaleString() : 'N/A'}</td>
-                <td>${index?.cases?.critical != null ? index.cases.critical.toLocaleString() : 'N/A'}</td>
-                <td>${index?.tests?.total != null ? index.tests.total.toLocaleString() : 'N/A'}</td>
-                <td class="recCases">${index?.cases?.recovered != null ? index.cases.recovered.toLocaleString() : 'N/A'}</td>
+                <td>${index?.cases?.new?.toLocaleString() ?? 'N/A'}</td>
+                <td>${index?.cases?.active?.toLocaleString() ?? 'N/A'}</td>
+                <td>${index?.cases?.critical?.toLocaleString() ?? 'N/A'}</td>
+                <td>${index?.tests?.total?.toLocaleString() ?? 'N/A'}</td>
+                <td class="recCases">${index?.cases?.recovered?.toLocaleString() ?? 'N/A'}</td>
                 <td class="totalDeaths">${index.deaths.total.toLocaleString()}</td>
             </tr>
             `;
