@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Suite</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.20.1.css">
+</head>
+<body>
+
+    <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="https://code.jquery.com/qunit/qunit-2.20.1.js"></script>
+  <script>
+    function add(a, b) {
+        return a + b;
+    }
+
+    function substract(a, b) {
+        return a - b;
+    }
+
+    function multiply (a, b) {
+        return a * b;
+    }
+
+    QUnit.module("add", function() {
+        QUnit.test("two members", function (assert) {
+            assert.expect(5);
+            assert.equal(add(1, 2), 3);
+            assert.equal(add(3, 3), 6);
+            assert.equal(add(1, 2), 3);
+            assert.equal(add(1, 2), 3);
+            assert.equal(add(1, 2), 3);
+        })
+    })
+
+    QUnit.module("substract", function() {
+        QUnit.test("two numbers", function (assert) {
+            assert.equal(substract(4, 2), 2);
+        })
+    })
+
+    QUnit.module("multiply", function() {
+        QUnit.test("two numbers", function (assert) {
+            assert.equal(multiply(2, 2), 4);
+        })
+    })
+  </script>
+</body>
+</html>
